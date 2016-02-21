@@ -19,26 +19,30 @@
         }
     </style>
 </head>
-<body onload="b()">
-    <p id="h"></p><p>:</p><p id="m"></p><p>:</p><p id="s"></p>
+<body onload="start()">
+    <p id="hours"></p>
+    <p>:</p>
+    <p id="minutes"></p>
+    <p>:</p>
+    <p id="seconds"></p>
     <script>
-        var d = document,
-            h = d.getElementById('h'),
-            m = d.getElementById('m'),
-            s = d.getElementById('s'),
-            i,n,t;
+        var doc = document,
+            hoursElement = doc.getElementById('hours'),
+            minutesElement = doc.getElementById('minutes'),
+            secondsElement = doc.getElementById('seconds'),
+            hours, minutes, seconds;
 
-        function b() {
+        function start() {
             var date = new Date();
-            h.innerHTML = i = p(date.getHours());
-            m.innerHTML = n = p(date.getMinutes());
-            s.innerHTML = t = p(date.getSeconds());
-            d.body.style.backgroundColor = '#'+i+n+t;
-            setTimeout(b, 1000);
+            hoursElement.innerHTML = (hours = pad(date.getHours()));
+            minutesElement.innerHTML = (minutes = pad(date.getMinutes()));
+            secondsElement.innerHTML = (seconds = pad(date.getSeconds()));
+            doc.body.style.backgroundColor = '#' + hours + minutes + seconds;
+            setTimeout(start, 1000);
         }
 
-        function p(p) {
-            return p>9?p:"0"+p;
+        function pad(p) {
+            return p > 9 ? p : "0" + p;
         }
     </script>
 </body>
