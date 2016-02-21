@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour me now</title>
+    <style>
+        html,body {
+            height : 100%;
+        }
+        body {
+            margin : 0;
+            display : flex;
+            align-items: center;
+            justify-content: center;
+            transition:background-color 1s ease-in;
+            font: 10vw monospace;
+            color : #FFF;
+        }
+    </style>
+</head>
+<body onload="b()">
+    <p id="h"></p><p>:</p><p id="m"></p><p>:</p><p id="s"></p>
+    <script>
+        var d = document,
+            h = d.getElementById('h'),
+            m = d.getElementById('m'),
+            s = d.getElementById('s'),
+            i,n,t;
+
+        function b() {
+            var date = new Date();
+            h.innerHTML = i = p(date.getHours());
+            m.innerHTML = n = p(date.getMinutes());
+            s.innerHTML = t = p(date.getSeconds());
+            d.body.style.backgroundColor = '#'+i+n+t;
+            setTimeout(b, 1000);
+        }
+
+        function p(p) {
+            return p>9?p:"0"+p;
+        }
+    </script>
+</body>
+</html>
