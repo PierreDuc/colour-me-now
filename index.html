@@ -26,10 +26,9 @@
     <p>:</p>
     <p id="seconds"></p>
     <script>
-        var doc = document,
-            hoursElement = doc.getElementById('hours'),
-            minutesElement = doc.getElementById('minutes'),
-            secondsElement = doc.getElementById('seconds'),
+        var hoursElement = document.getElementById('hours'),
+            minutesElement = document.getElementById('minutes'),
+            secondsElement = document.getElementById('seconds'),
             hours, minutes, seconds;
 
         function start() {
@@ -37,7 +36,7 @@
             hoursElement.innerHTML = (hours = pad(date.getHours()));
             minutesElement.innerHTML = (minutes = pad(date.getMinutes()));
             secondsElement.innerHTML = (seconds = pad(date.getSeconds()));
-            doc.body.style.backgroundColor = '#' + hours + minutes + seconds;
+            document.body.style.backgroundColor = '#' + hours + minutes + seconds;
             setTimeout(start, 1000);
         }
 
